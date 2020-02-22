@@ -2,11 +2,11 @@ const { ApolloServer } = require("apollo-server")
 
 const typeDefs = require("./schema");
 const resolvers = require ("./resolvers");
-const PostApi = ("./DataSource/PostAPI");
+const PostApi = require("./DataSource/PostAPI");
 const server = new ApolloServer({
     typeDefs,
     resolvers,
-    dataSources: () => ({PostApi :new PostApi()})
+    dataSources: () => ({PostApi: new PostApi()})
 }) 
 
 server.listen().then(({ url })=>{
